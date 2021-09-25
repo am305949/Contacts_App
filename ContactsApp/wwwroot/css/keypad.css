@@ -1,0 +1,32 @@
+﻿/*
+    Keypad Style
+*/
+#keypad tr td, #keypad tr td img {
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #000000;
+    font-size: 18px;
+    font-weight: bold;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #1b6ec2;
+    border: hidden;
+}
+
+#keypad tr td:hover {
+    background-color: #999999;
+    color: #FFFF00;
+}
+
+#keypad tr td img:hover {
+    background-color: #999999;
+    color: #FFFF00;
+}
+
+.keypad-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
