@@ -1,0 +1,70 @@
+﻿@model ContactsApp.Models.Contact
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<link rel="stylesheet" href="~/css/keypad.css">
+
+<h4>Edit Contact</h4>
+<hr />
+<div class="row" style="text-align:center;">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Number" class="control-label">Phone Number</label>
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group, keypad-div">
+                <table id="keypad" cellpadding="5" cellspacing="3">
+                    <tr>
+                        <td onclick="addNumber('1');">1</td>
+                        <td onclick="addNumber('2');">2</td>
+                        <td onclick="addNumber('3');">3</td>
+                    </tr>
+                    <tr>
+                        <td onclick="addNumber('4');">4</td>
+                        <td onclick="addNumber('5');">5</td>
+                        <td onclick="addNumber('6');">6</td>
+                    </tr>
+                    <tr>
+                        <td onclick="addNumber('7');">7</td>
+                        <td onclick="addNumber('8');">8</td>
+                        <td onclick="addNumber('9');">9</td>
+                    </tr>
+                    <tr>
+                        <td onclick="addNumber('*');">*</td>
+                        <td onclick="addNumber('0');">0</td>
+                        <td onclick="addNumber('#');">#</td>
+
+                    </tr>
+                    <tr>
+                        <td onclick="emptyNumber();">C</td>
+                        <td><input type="submit" value="Edit" class="btn btn-primary" /></td>
+                        <td onclick="removeNumber();"><img src="https://image.flaticon.com/icons/svg/61/61167.svg" width="30" height="30" alt="Left Arrow free icon"></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br />
+<br />
+<div>
+    <a asp-action="Index">Back to List Of Contacts</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="~/js/keypad.js"></script>
+

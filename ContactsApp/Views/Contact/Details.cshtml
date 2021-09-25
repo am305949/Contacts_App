@@ -1,0 +1,24 @@
+﻿
+@model ContactsApp.Models.Contact
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h3>Contact Details</h3>
+<hr/>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Html.DisplayNameFor(model => model.Name):</h5>
+        <p class="card-text">@Html.DisplayFor(model => model.Name)</p>
+        <h5 class="card-title">Phone Number:</h5>
+        <p class="card-text">@Html.DisplayFor(model => model.Number)</p>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit Contact</a>
+    </div>
+</div>
+
+<br/><br/>
+<div>
+    <a asp-action="Index">Back to List Of Contacts</a>
+</div>
